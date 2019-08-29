@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlue">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:background="@android:color/white">
+
+        <EditText
+            android:id="@+id/base_currency_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:inputType="numberDecimal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="1"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/base_currency_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1.00" />
+
+        <EditText
+            android:id="@+id/converted_currency_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:enabled="false"
+            android:inputType="none"
+            android:paddingTop="16dp"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/converted_currency_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/base_currency_divider"
+            tools:text="0.75" />
+
+        <TextView
+            android:id="@+id/base_currency_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:textSize="26sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/base_currency_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="EUR" />
+
+        <TextView
+            android:id="@+id/converted_currency_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:textSize="26sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/converted_currency_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="USD" />
+
+        <View
+            android:id="@+id/base_currency_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/base_currency_barrier" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/base_currency_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="base_currency_value,base_currency_name"
+            tools:layout_editor_absoluteY="731dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
